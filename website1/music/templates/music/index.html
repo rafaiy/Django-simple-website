@@ -1,0 +1,24 @@
+{% extends 'music/base.html' %}
+{% block body %}
+
+{% if object_list %}
+    <h1> Here are All Albums </h1>
+
+    <ul>
+        {% for album in object_list %}
+        <li>
+            <a href="{% url 'details' album.id%}">{{album.artist}} </a>
+            <form action="album/{{album.id}}/delete" method="post">
+                {% csrf_token %}
+                <input type="submit" value="del"/>
+            </form>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+    <h1>no album to show sry</h1>
+
+{% endif %}
+{% endblock %}

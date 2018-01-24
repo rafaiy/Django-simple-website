@@ -1,0 +1,31 @@
+{% extends 'music/base.html' %}
+{% block body %}
+
+<h1>Here are all songs</h1>
+<h2>artist: {{album.artist}}</h2>
+<h2>album_title: {{album.album_title}}</h2>
+<img src="{{album.logo.url}}" alt="{{album.title}}"/>
+<h2>Songs Are </h2>
+        {% if error_message %}
+        <h1>{{error_message}} </h1>
+        {% endif %}
+
+<form action="/music/{{album.id}}/favorite" method="POST">
+    {% csrf_token %}
+     <ul>
+    {% for song in album.song_set.all %}
+
+
+                 <li>   <input type="radio" id="song{{ forLoop.counter }}" name="song" value="{{song.id}}">
+                    <label for="song{{ forloop.counter }}">
+                        {{song.song_title}}{% if song.stared %}
+                        <img src='http://www.goldentickets.com/images/ticketutils/IMG/preferred.png'><br>
+                             {% endif %}
+                    </label>
+                 </li>
+    {% endfor %}
+         </ul>
+    <br>
+    <input type="submit" value="favorite">
+</form>
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MuSiC</title>
+ <!--loads the path to your static files -->
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'music/navbar.css' %}" />
+
+</head>
+<body>
+ <ul id="seprate">
+        <li >
+                    <a href="/music/">MuSiC</a>
+                </li>
+          <li >
+                    <a href="/admin/">admin</a>
+                </li>
+        <li >
+                    <a href="#">ALBUMS</a>
+                </li>
+        <li>
+                    <a href="#">SONGS</a>
+                </li>
+        <li>
+                    <a href="#">SEARCH</a>
+                </li>
+        <li>
+                    <a href="/music/album/add">ADD ALBUM</a>
+                </li>
+        <li>
+                    <a href="/register/">LOGOUT</a>
+                </li>
+        </ul>
+
+</body>
+{% block body %}
+{% endblock %}
+</html>

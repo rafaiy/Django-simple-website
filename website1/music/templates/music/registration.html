@@ -1,0 +1,45 @@
+{% extends 'music/base.html' %}
+{% block body %}
+
+<style>
+    ul{
+    text-align:center;
+    list-style-type:none;
+    padding-top:20px;
+    }
+
+    button:hover{
+
+    background-color: green;
+
+
+    }
+    li{
+    padding-top:40px;
+    }
+
+
+ button{
+margin-left: 900px;
+
+
+ }
+
+</style>
+
+
+
+
+<form method="post" action="">
+    {% csrf_token %}
+<ul>
+{% for field in form %}
+<li>
+    <label>{{ field.label_tag }}</label>
+           {{ field }}
+</li>
+{% endfor %}
+</ul>
+    <button type="submit">login</button>
+</form>
+{% endblock %}
